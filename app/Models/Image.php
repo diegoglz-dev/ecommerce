@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Brand extends Model
+class Image extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['url', 'imageable_id', 'imageable_type'];
 
-    public function categories()
+    public function imageable()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->morphTo();
     }
 }
